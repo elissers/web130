@@ -27,6 +27,8 @@ nav.main {
 nav.main ul	{
 	font-size:1.3em;
   color:white;
+  list-style-type:none;
+  position:relative;
 }
 
 nav.main li	{
@@ -45,9 +47,41 @@ nav.main li a	{
 		}
 		
 		nav.main .current a {
-			color:gray;
+			color:#ffff99;
 
 		}
+
+/*sub-nav styles*/
+nav.main ul li ul  {
+  position:absolute;
+  visibility:hidden;
+  font-size:1em;
+  opacity:0;
+  transition:visibility 0s linear 0.5s, opacity 0.5s linear;
+}
+
+nav.main ul li:hover ul  {
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+
+nav.main ul li ul li  {
+  float:none;
+  background:black;
+  display: block;
+  margin-left:80.55%;
+  padding:0 0 0 2%;
+  font-size:.7em;
+  width:120px;
+  color:white;
+}
+
+nav.main ul li ul li:hover  {
+  background:#c8c8c8;
+}
+/*end of sub-nav*/
+
   
 #left {
   width:58%;
