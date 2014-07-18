@@ -89,7 +89,7 @@ a  {
   left:0;
 }
 
-.nav > li > li.hover > ul  {
+.nav li li.hover ul  {
   left:100%;
   top:0;
 }
