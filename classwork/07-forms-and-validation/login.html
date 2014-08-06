@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <!-- <script src="js/jquery-2.1.1.min.js"></script> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+      .error  {
+        color:red;
+        font-weight:bold;
+        text-transform:uppercase;
+        text-shadow:1px 1px 1px black;
+      }
+
+      .hidden  {
+        display:none;
+      }  
+
+      body  {
+        font-family:arial, sans serif;
+      }
+
+      button[type="submit"]  {
+        box-shadow:0px 0px 3px green;
+      }
+
+
+    </style>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById("contact-form").onsubmit = validateContact;
+      }
+
+      function validateContact() 
+      {
+        var firstName = document.getElementById("first-name").value;
+        var fNameError = document.getElementById("error-first-name");
+
+        var lastName = document.getElementById("last-name").value;
+        var lNameError = document.getElementById("error-last-name");
+
+        var phoneNumber = document.getElementById("phone-number").value;
+        var pNumberError = document.getElementById("error-phone-number");
+
+        //if they enter nothing in the text box
+        //then show an alert, and don't go to the success page
+        //otherwise go directly to the success page with no alert
+        if(firstName == "") {
+          fNameError.className = "error";
+        } else {
+          fNameError.className = "hidden";
+        }
+
+        if(lastName == "") {
+          lNameError.className = "error";
+        } else {
+          lNameError.className = "hidden";
+        }
+
+        if(phoneNumber == "") {
+          pNumberError.className = "error";
+        } else {
+          pNumberError.className = "hidden";  
+        }
+        
+        if(phoneNumber != "" && lastName != "" && firstName != "") {
+          return true; //go to the next page
+        } else {
+          return false; //don't go to the next page
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <form id="contact-form" action="success.html">
+      <p>
+        <label for="first-name">First Name:</label>
+        <input name="first-name" id="first-name" type="text">
+        <span id="error-first-name" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="last-name">Last Name:</label>
+        <input name="last-name" id="last-name" type="text">
+        <span id="error-last-name" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="phone-number">Phone:</label>
+        <input name="phone-number" id="phone-number" type="text">
+        <span id="error-phone-number" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="agree">I agree</label>
+        <input type="checkbox" name="agree" id="agree" required />
+      </p>
+
+
+      <button name="submit" type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>
