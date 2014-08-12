@@ -1,61 +1,142 @@
 <html>
   <head>
     <title>torgeson web130 - contact elissa</title>
-    <link    <link rel="stylesheet/less" href="styles.less">
+    <link rel="stylesheet/less" href="styles.less">
     <script src="js/less-1.7.3.min.js"></script>
-    
-    <script language="JavaScript"> 
- 
-       var yourname= prompt('Please enter your name', ' ');
 
-       if ( (yourname==' ') || (yourname==null) ) 
-             { 
-             yourname="Dude"; 
-             } 
-    </script> 
+    <script type="text/javascript">
+      window.ParsleyConfig = {
+        validators: {
+          conditionalrequired: {
+            fn: function (value, requirements) {
+              // if requirements[0] value does not meet requirements[1] expectation, field is required
+              if (requirements[1] == $(requirements[0]).val() && '' == value)
+                return false;
+
+              return true;
+            },
+            priority: 32
+          }
+        }
+      };
+
+      $('#myForm').parsley().reset();
+
+    </script>
+    <script type="text/javascript" src="/parsley.min.js"></script>
+
   </head>
-  
+
   <body>
     <header>
       <h1>Web 130</h1>
-    <h2 class="name">Contact Elissa</h2>
+      <h2 class="name">Contact Elissa</h2>
     </header>
-    
+
     <nav class="main">
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li>Classwork
-            <ul>
-              <li><a href="classwork/01-css-dropdown/index.html">01</a></li>
-              <li><a href="classwork/02-less/a1/index.html">02a</a></li>
-              <li><a href="classwork/02-less/a2/index.html">02b</a></li>
-              <li><a href="classwork/03-less/a1/index.html">03a</a></li>
-              <li><a href="classwork/03-less/a2/index.html">03b</a></li>
-              <li><a href="#">04</a></li>
-            </ul>
-          </li>         
-        </ul>
-     </nav>
-    
-     <div id="left">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="dropdown">Classwork
+          <ul>
+            <li><a href="classwork/01-css-dropdown/index.html">01</a></li>
+            <li><a href="classwork/02-less/a1/index.html">02a</a></li>
+            <li><a href="classwork/02-less/a2/index.html">02b</a></li>
+            <li><a href="classwork/03-less/a1/index.html">03a</a></li>
+            <li><a href="classwork/03-less/a2/index.html">03b</a></li>
+            <li><a href="classwork/04.1-responsive-menu/index.html">04a</a></li>
+            <li><a href="classwork/04.2-responsive-menu/index.html">04b</a></li>
+            <li><a href="classwork/05-bootstrap/index.html">05a</a></li>
+            <li><a href="classwork/05.2-bootstrap/index.html">05b</a></li>
+            <li><a href="classwork/#">07</a></li>
+            <li><a href="classwork/#">08</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">Assignments
+          <ul>
+            <li><a href="assignments/bootstrap.html">Bootstrap</a></li>
+            <li><a href="#">02</a></li>
+            <li><a href="#">03</a></li>
+          </ul>
+        </li>      
 
-      <script language="JavaScript"> 
-      document.write("<h1>Welcome, " + yourname + "! <\/h1>");
-      </script> 
 
-            <button>Submit!</button> 
+      </ul>
+    </nav>
 
-     </div>
-    
-     <div id="side">
-            <img src="images/elissa.jpg" alt="picture of Elissa" class="flex" />
-     </div>
-   
-     <footer>
-            <p>Copyright Elissa Torgeson 2014</p>
-     </footer>
-    
+    <div id="left">
+      <h3 class="yellowh3">Please fill out the following & I'll get back to you shortly.</h3>
+      <form id="demo-form" data-parsley-validate action="success.html">
+
+        <div class="first">
+          <label for="firstname">Firstname:</label>
+          <input type="text" name="firstname" data-parsley-range="[4, 20]" data-parsley-group="block1" required /><br>
+
+          <label for="lastname">Lastname:</label>
+          <input type="text" name="lastname" data-parsley-range="[4, 20]" data-parsley-group="block1" required /><br>
+
+          <label for="address">Address:</label>
+          <input type="text" name="address" data-parsley-range="[4, 20]" data-parsley-group="block1" required /><br>
+
+          <!-- regular select input. Nothing more to add. -->
+          <label for="city">City * :</label>
+          <select id="city" required>
+            <option value="">Choose..</option>
+            <option value="seattle">Seattle</option>
+            <option value="bremerton">Bremerton</option>
+            <option value="tacoma">Tacoma</option>
+            <option value="other">Other..</option>
+          </select>&nbsp;&nbsp;
+
+          <label for="other">If other, please provide your city</label>
+  <input type="text" class="form-control" name="other" data-parsley-conditionalrequired='["[name=\"city\"]:checked", "other"]' data-parsley-validate-if-empty data-parsley-success-class="" data-parsley-conditionalrequired-message="This value is required since you do not live in the cities listed." /><br>
+
+
+          <!-- this optional textarea have a length validator that would be checked on keyup after 10 first characters, with a custom message only for minlength validator -->
+          <label for="zip">Zip Code (5 chars max) * :</label>
+          <textarea name="zip" data-parsley-trigger="keyup" data-parsley-length="[5, 5]" parsley-type="digits" data-parsley-validation-threshold="10" data-parsley-minlength-message = "Zip code must be a total of 5 digits" data-parsley-maxlength-message = "Zip code must be a total of 5 digits"required></textarea><br><br>
+
+        </div>
+        
+        <!-- this required field must be an email, and validation will be run on
+  field change -->
+  <label for="email">Email * :</label>
+  <input type="email" id="emailid" name="email" data-parsley-trigger="change" required/>&nbsp;&nbsp;
+
+   <label for="email">Confirm Email * :</label>
+  <input name="email" data-parsley-trigger="change"  data-parsley-equalto= "#emailid" required  /><br><br>
+
+        <!-- radio and checkbox inputs by default have to be wrapped in a parent
+elemnt (here <p>) that will have success and error classes -->
+        <label for="car">Do you own a car? * :</label>
+        <p>Yes: <input type="radio" name="car" id="carY" value="Y" required />
+          No: <input type="radio" name="car" id="carN" value="N" /></p>
+
+        <!-- here, field is not required, it won't throw any error if no checkbox
+is checked. But if checked, two at least must be checked -->
+        <label for="hobbies">Languages you speak (1 minimum) * :</label>
+        <p><input type="checkbox" name="languages" value="english" data-parsley-mincheck="1" required /> English <br>
+          <input type="checkbox" name="languages" value="spanish" /> Spanish<br>
+          <input type="checkbox" name="languages" value="french" /> French <br>
+          <input type="checkbox" name="languages" value="russian" /> Russian <br>
+          <input type="checkbox" name="languages" value="pig-latin" /> Pig Latin 
+        </p>
+
+        <input type="reset" id="resetForm" value="Reset Form" />
+        <input type="submit" class="right" value="Submit Form" />
+        
+      </form>
+    </div>
+
+
+    <div id="side">
+      <img src="images/elissa.jpg" alt="picture of Elissa" class="flex" />
+    </div>
+
+    <footer>
+      <p>Copyright Elissa Torgeson 2014</p>
+    </footer>
+
   </body>
 </html>

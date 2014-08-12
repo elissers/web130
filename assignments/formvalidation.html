@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Elissa's Contact Form</title>
+    <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <!-- <script src="js/jquery-2.1.1.min.js"></script> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style>
+      .error  {
+        color:red;
+        font-weight:bold;
+        text-transform:uppercase;
+        text-shadow:1px 1px 1px black;
+      }
+
+      .hidden  {
+        display:none;
+      }  
+
+      body  {
+        font-family:arial, sans serif;
+      }
+
+      button[type="submit"]  {
+        box-shadow:0px 0px 3px green;
+      }
+
+      #last-name  {
+        width:150px;
+      }
+      
+      #address  {
+        width:300px;
+      }
+      
+      #email  {
+        width:300px;
+      }
+      
+      #emailcon  {
+        width:300px;
+      }
+
+    </style>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        document.getElementById("contact-form").onsubmit = validateContact;
+      }
+
+      function validateContact() 
+      {
+        var firstName = document.getElementById("first-name").value;
+        var fNameError = document.getElementById("error-first-name");
+
+        var lastName = document.getElementById("last-name").value;
+        var lNameError = document.getElementById("error-last-name");
+
+        var address = document.getElementById("address").value;
+        var addressError = document.getElementById("error-address");
+
+        var city = document.getElementById("city").value;
+        var cityError = document.getElementById("error-city");
+
+        var zipcode = document.getElementById("zipcode").value;
+        var zipcodeError = document.getElementById("error-zipcode");
+
+        var email = document.getElementById("email").value;
+        var emailError = document.getElementById("error-email");
+
+        var emailcon = document.getElementById("emailcon").value;
+        var emailconError = document.getElementById("error-emailcon");
+
+        var languages = document.getElementById("languages").value;
+        var languagesError = document.getElementById("error-languages");
+
+        var car = document.getElementById("car").value;
+        var carError = document.getElementById("error-car");
+
+
+
+        //if they enter nothing in the text box
+        //then show an alert, and don't go to the success page
+        //otherwise go directly to the success page with no alert
+        if(firstName == "") {
+          fNameError.className = "error";
+        } else {
+          fNameError.className = "hidden";
+        }
+
+        if(lastName == "") {
+          lNameError.className = "error";
+        } else {
+          lNameError.className = "hidden";
+        }
+
+        if(address == "") {
+          addressError.className = "error";
+        } else {
+          addressError.className = "hidden";  
+        }
+
+        if(city == "") {
+          cityError.className = "error";
+        } else {
+          cityError.className = "hidden";  
+        }
+
+        if(zipcode == "") {
+          zipcodeError.className = "error";
+        } else {
+          zipcodeError.className = "hidden";  
+        }
+
+        if(email == "") {
+          emailError.className = "error";
+        } else {
+          cityError.className = "hidden";  
+        }
+
+        if(languages == "") {
+          languagesError.className = "error";
+        } else {
+          languagesError.className = "hidden";  
+        }
+
+        if(car == "") {
+          carError.className = "error";
+        } else {
+          carError.className = "hidden";  
+        }
+
+
+        if(lastName != "" && firstName != ""  && address != "" && zipcode != "" && email != "") {
+          return true; //go to the next page
+        } else {
+          return false; //don't go to the next page
+        }
+      }
+    </script>
+
+  </head>
+  <body>
+    <form id="contact-form" action="success.html">
+      <p>
+        <label for="first-name">First Name:</label>
+        <input name="first-name" id="first-name" type="text">
+        <span id="error-first-name" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="last-name">Last Name:</label>
+        <input name="last-name" id="last-name" type="text">
+        <span id="error-last-name" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="address">Address:</label>
+        <input name="address" id="address" type="text">
+        <span id="error-address" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="city">City</label>
+        <select id="city" name="city">
+          <option value="Seattle">Seattle</option>
+          <option value="Bremerton">Bremerton</option>
+          <option value="Tacoma">Tacoma</option> 
+          <option value="Other">Other</option>
+        </select>
+        <span id="error-city" class="error hidden">* Please choose a city</span>
+      </p>
+
+      <p>
+        <label for="zipcode">Zip Code:</label>
+        <input name="zipcode" id="zipcode" type="text">
+        <span id="error-zipcode" class="error hidden">* Zipcode must be 5 digits</span>
+      </p>
+
+      <p>
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="text">
+        <span id="error-email" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="emailcon">Retype Email:</label>
+        <input name="emailcon" id="emailcon" type="text">
+        <span id="error-emailcon" class="error hidden">* Error</span>
+      </p>
+
+      <p>
+        <label for="languages">What languages do you speak?</label><br>
+        <input type="checkbox" name="languages" class="languages" value="English" />English<br>
+        <input type="checkbox" name="languages" class="languages" value="Spanish" />Spanish<br>
+        <input type="checkbox" name="languages" class="languages" value="French" />French 
+        <span id="error-languages" class="error hidden">* Please choose one language</span>
+      </p>
+
+      <p>
+        <label for="car">Do you own a car?</label><br>
+        <input type="radio" name="car" class="car" value="Yes" />Yes<br>
+        <input type="radio" name="car" class="car" value="No" />No<br><br>
+      </p>
+
+        <button name="clear" type="button">Clear Form</button><br><br>
+
+        <button name="submit" type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>

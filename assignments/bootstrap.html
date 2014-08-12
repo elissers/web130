@@ -1,127 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
     <title>elissa's bootstrap assignment</title>
-  <link rel="shortcut icon" href="favicon.ico"type="image/x-icon">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico"type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootswash.css">
     <link rel="stylesheet/less" href="css/styles.less">
     <!--[if lt IE 9]>
-        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/less-1.7.0.min.js"></script>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-</head>
-<body>
- <div class="container">
-    <header class="row">
-      <h1>Bootstrap Assignment</h1>
-      <h2>Cagey Cats</h2>
-    </header>
-   
-   <nav>
-     <div class="container">
-      <ul class="nav nav-pills">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Young Cage</a></li>
-        <li><a href="#">Middle-Age Cage</a></li>
-        <li><a href="#">Mature Cage</a></li>
-        <li><a href="#">Kittens</a></li>
-       <li><a href="#">Cats</a></li>
-        <li><a href="#">Old Cats</a></li>
-      </ul>
-    </div>
-   </nav>
-   
-   <div class="jumbotron">
-    <h1>Hello, world!</h1>
-    <p class="text-muted">Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
-    <p><a class="btn btn-info btn-lg" role="button">Learn more</a></p>
-   </div>
-   
-     <h4>Bootstrap Buttons</h4>
-     <p id="login" class="pull-right">Login</p>
+
+    <script>
+      $('.collapse').collapse()
+
+      $('#myCollapsible').collapse({
+        toggle: false
+      })
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="row">
+        <h1>Bootstrap Assignment</h1>
+        <h2>Cagey Cats</h2>
+      </header>
+
+      <nav class="nav bar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Home</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">I love Bootstrap</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cats <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Kittens</a></li>
+                  <li><a href="#">Teen Cats</a></li>
+                  <li><a href="#">Old Cats</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Local Cats</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Cats Abroad</a></li>
+                  <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+      <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p class="text-muted">Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
+        <p><a class="btn btn-info btn-lg" role="button">Learn more</a></p>
+      </div>
+
+      <h4>Bootstrap Buttons</h4>
+      <p id="login" class="pull-right">Login</p>
       <button class="btn btn-warning">I want Cage!</button>
       <a class="btn btn-danger">I want Cats!</a><br><br><br>
-   
-    <div class="bs-example">     
-    <table class="table">
-      <h4>Bootstrap Table</h4>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Cat's Name</th>
-          <th>Color</th>
-          <th>Sex</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="active">
-          <td>1</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="success">
-          <td>3</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="info">
-          <td>5</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="warning">
-          <td>7</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="danger">
-          <td>9</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-      </tbody>
-    </table>
-  </div><!-- /example -->
+
+      <div class="bs-example">     
+        <table class="table">
+          <h4>Bootstrap Table</h4>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Cat's Name</th>
+              <th>Color</th>
+              <th>Sex</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="active">
+              <td>1</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="success">
+              <td>3</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="info">
+              <td>5</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="warning">
+              <td>7</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+            <tr class="danger">
+              <td>9</td>
+              <td>Column content</td>
+              <td>Column content</td>
+              <td>Column content</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- /example -->
       <div class="row">
         <div class="col-md-3 col-sm-4">
           <h2>Sexy Cage</h2>
           <h5>Column 1</h5>
           <p class="text-muted">Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
-         <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
+          <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
           <img src="http://placecage.com/300/600" class="img-responsive">
         </div>
 
@@ -129,7 +167,7 @@
           <h2>Cat 1</h2>
           <h5>Column 2</h5>
           <p class="text-warning">Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
-         <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
+          <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
           <img src="http://placekitten.com/300/500" class="img-responsive">
         </div>
 
@@ -137,7 +175,7 @@
           <h2>Cat 2</h2>
           <h5>Column 3</h5>
           <p class="text-success">Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
-         <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
+          <p>Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
           <img src="http://placekitten.com/300/400" class="img-responsive">
         </div>
 
@@ -145,27 +183,27 @@
           <h2>Cage Cooks</h2>
           <h5>Aside</h5>
           <p>Lorem ipsum dolor sit amet, ad corpora voluptua neglegentur usu. Alia alienum eam ut, eu decore persequeris qui. Alii nibh vivendo an mei, no falli mucius lobortis nam. Eos an putant erroribus. At errem salutandi his, ea eos semper propriae.</p>
-         <p class="text-danger">Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
+          <p class="text-danger">Vocent necessitatibus ea eam. Putent iriure pro et, pro quando diceret ea. Ne vim purto tractatos sententiae. In ubique officiis recusabo eum. Suas error efficiendi qui ei.</p>
           <img src="http://placecage.com/300/300" class="img-responsive img-circle">
         </div>
-    </div><br>
-   
+      </div><br>
+
       <h4>Awesome Progress Bar - another Bootstrap Component</h4>
-   <div class="progress">
-    <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
-      <span class="sr-only">95% Complete</span>
-    </div>
-  </div>
-   <h5>Do you feel like you are stuck?</h5><br><br>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 95%">
+          <span class="sr-only">95% Complete</span>
+        </div>
+      </div>
+      <h5>Do you feel like you are stuck?</h5><br><br>
 
-    
-    <footer class="row">
-      <h5>&copy;2014 Elissa Torgeson &nbsp;  |  &nbsp; All rights reserved.</h5>
-    </footer>
-    
-  </div><!--end of container div-->
-  
-  
 
-</body>
+      <footer class="row">
+        <h5>&copy;2014 Elissa Torgeson &nbsp;  |  &nbsp; All rights reserved.</h5>
+      </footer>
+
+    </div><!--end of container div-->
+
+
+
+  </body>
 </html>
